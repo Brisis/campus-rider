@@ -1,4 +1,5 @@
 import 'package:campus_rider/auth/auth_page.dart';
+import 'package:campus_rider/maps/maps_home.dart';
 import 'package:campus_rider/screens/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class MainScreen extends StatelessWidget {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return HomeScreen();
+            return MapsHomeScreen();
           } else {
             return AuthScreen();
           }

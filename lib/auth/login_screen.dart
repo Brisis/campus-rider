@@ -1,4 +1,6 @@
 import 'package:campus_rider/auth/forgot_pwd_screen.dart';
+import 'package:campus_rider/helpers/constants.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -61,14 +63,14 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Icon(
-                Icons.bike_scooter,
+                Icons.directions_car,
                 size: 100,
               ),
               const SizedBox(
                 height: 75,
               ),
               Text(
-                "Campus Rider",
+                "Buse Rider",
                 style: GoogleFonts.pacifico(
                   fontSize: 44,
                 ),

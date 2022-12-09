@@ -1,3 +1,4 @@
+import 'package:campus_rider/helpers/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -58,14 +59,25 @@ class _RegisterScreenState extends State<RegisterScreen> {
     }
   }
 
-  Future addUserDetails(
-      String fullName, String regNo, String email, int age) async {
-    await FirebaseFirestore.instance.collection("users").add({
-      "full name": fullName,
-      "regNo": regNo,
-      "age": age,
-      "email": email,
-    });
+  addUserDetails(
+    String fullName,
+    String regNo,
+    String email,
+    int age,
+  ) async {
+    try {
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(loggedUser.uid)
+          .set({
+        "full name": fullName,
+        "regNo": regNo,
+        "age": age,
+        "email": email,
+      }, SetOptions(merge: true));
+    } catch (e) {
+      print(e);
+    }
   }
 
   bool passwordConfirmed() {
